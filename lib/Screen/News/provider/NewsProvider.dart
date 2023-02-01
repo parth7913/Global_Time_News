@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class NewsProvider extends ChangeNotifier
 {
   List name = [
-    "Bollywood" ,
-    "Microsoft",
+    "Microsoft" ,
+    "Bollywood",
     "Youtube",
+    "Hollywood",
     "Google",
     "Tata",
     "Meta"

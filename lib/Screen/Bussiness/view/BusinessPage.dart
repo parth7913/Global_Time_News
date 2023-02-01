@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Screen/Bussiness/Provider/BusinessProvider.dart';
+import 'package:news_app/Screen/HelthNews/provider/HelthProvider.dart';
 import 'package:news_app/Screen/News/Modal/News_modal.dart';
-import 'package:news_app/Screen/News/provider/NewsProvider.dart';
 import 'package:news_app/Utils/Apihttp.dart';
 import 'package:provider/provider.dart';
 
-class Home_Page extends StatefulWidget {
-  const Home_Page({Key? key}) : super(key: key);
+class BusinessPage extends StatefulWidget {
+  const BusinessPage({Key? key}) : super(key: key);
 
   @override
-  State<Home_Page> createState() => _Home_PageState();
+  State<BusinessPage> createState() => _BusinessPageState();
 }
 
-class _Home_PageState extends State<Home_Page> {
-  NewsProvider? newsProvidertrue;
+class _BusinessPageState extends State<BusinessPage> {
+  BusinessProvider? BusinessProvidertrue;
 
   @override
   Widget build(BuildContext context) {
-    newsProvidertrue = Provider.of(context, listen: true);
+    BusinessProvidertrue = Provider.of(context, listen: true);
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -26,7 +27,7 @@ class _Home_PageState extends State<Home_Page> {
               width: double.infinity,
               color: Colors.white,
               child: ListView.builder(
-                itemCount: newsProvidertrue!.name.length,
+                itemCount: BusinessProvidertrue!.business.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
@@ -43,10 +44,10 @@ class _Home_PageState extends State<Home_Page> {
                             ),
                           ),
                           onPressed: () {
-                            newsProvidertrue!.ChangeIndex(index);
+                            BusinessProvidertrue!.ChangeIndex3(index);
                           },
                           child: Text(
-                            "${newsProvidertrue!.name[index]}",
+                            "${BusinessProvidertrue!.business[index]}",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -59,7 +60,7 @@ class _Home_PageState extends State<Home_Page> {
             Expanded(
               child: FutureBuilder(
                 future: Apihttp().getNews(
-                    "${newsProvidertrue!.name[newsProvidertrue!.index]}(top news)"),
+                    "${BusinessProvidertrue!.business[BusinessProvidertrue!.index4]}(Business)"),
                 builder: (context, shapshot) {
                   if (shapshot.hasError) {
                     return Text("${shapshot.hasError}");

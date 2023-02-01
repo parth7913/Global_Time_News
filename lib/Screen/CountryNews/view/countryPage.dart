@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Screen/CountryNews/provider/CountryProvider.dart';
 import 'package:news_app/Screen/News/Modal/News_modal.dart';
-import 'package:news_app/Screen/News/NewsProvider.dart';
 import 'package:news_app/Utils/Apihttp.dart';
 import 'package:provider/provider.dart';
 
@@ -60,7 +59,7 @@ class _CountryPageState extends State<CountryPage> {
             Expanded(
               child: FutureBuilder(
                 future: Apihttp().getNews(
-                    "${CountryProvidertrue!.country[CountryProvidertrue!.index2]}"),
+                    "${CountryProvidertrue!.country[CountryProvidertrue!.index2]}(country)"),
                 builder: (context, shapshot) {
                   if (shapshot.hasError) {
                     return Text("${shapshot.hasError}");

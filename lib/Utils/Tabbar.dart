@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Screen/Bussiness/view/BusinessPage.dart';
 import 'package:news_app/Screen/CountryNews/view/countryPage.dart';
+import 'package:news_app/Screen/HelthNews/view/HelthPage.dart';
 import 'package:news_app/Screen/News/View/Home_Page.dart';
 
 class TabBaar extends StatefulWidget {
@@ -13,7 +15,7 @@ class _TabBaarState extends State<TabBaar> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 4,
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
@@ -25,6 +27,12 @@ class _TabBaarState extends State<TabBaar> {
                 ),
                 Tab(
                   text: "COUNTRY",
+                ),
+                Tab(
+                  text: "HEALTH",
+                ),
+                Tab(
+                  text: "BUSINESS",
                 ),
               ],
             ),
@@ -80,6 +88,8 @@ class _TabBaarState extends State<TabBaar> {
             children: [
               Home_Page(),
               CountryPage(),
+              HealthPage(),
+              BusinessPage(),
             ],
           ),
         ),
